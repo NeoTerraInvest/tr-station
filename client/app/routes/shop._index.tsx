@@ -32,11 +32,11 @@ export default function Shop() {
         </div> */}
       </section>
       <section className="container w-full flex flex-col items-center justify-center min-h-[27.625rem] bg-white">
-        <div className="w-full h-full flex-1 flex flex-col gap-4">
-          <h3 className="container flex justify-start text-2xl font-bold ml-10 lg:ml-0">
+        <div className="w-full items-center h-full flex-1 flex flex-col gap-4">
+          <h3 className="flex lg:w-full md:w-[640px] w-[320px] text-2xl font-bold">
             상품
           </h3>
-          <div className="w-full flex flex-wrap lg:flex-nowrap justify-center gap-4">
+          <div className="w-full flex flex-wrap lg:flex-nowrap lg:justify-between justify-center gap-4">
             <ItemCard />
             <ItemCard />
             <ItemCard />
