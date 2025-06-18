@@ -1,8 +1,11 @@
 export default function Header() {
   return (
-    <header className="text-2xl font-semibold min-h-[5rem] bg-gray-300 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
-        <h1>Tr-station</h1>
+    <header className="text-2xl font-semibold min-h-[5rem] bg-background-primary">
+      <div className="container h-full flex items-center">
+        <div className="py-2">
+          <h1 className="text-2xl font-bold text-white">TR</h1>
+          <span className="text-sub-1">TRANSFER STATION</span>
+        </div>
       </div>
     </header>
   );
