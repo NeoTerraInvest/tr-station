@@ -1,5 +1,6 @@
 import { Outlet } from "@remix-run/react";
 import type { MetaFunction } from "@remix-run/node";
+// import Footer from "../components/layout/Footer";
 
 export const meta: MetaFunction = () => [
   { title: "Shop" },
@@ -8,24 +9,25 @@ export const meta: MetaFunction = () => [
 
 export default function ShopLayout() {
   return (
-    <div className="min-h-screen bg-gray-300">
-      <header className="bg-white shadow">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <h1 className="text-2xl font-bold text-gray-900">Shop</h1>
+    <div className="min-h-screen">
+      <header className="text-2xl font-semibold min-h-[5rem] bg-white">
+        <div className="container h-full flex items-center">
+          <div className="py-2">
+            <h1 className="text-2xl font-bold text-background-primary">TR</h1>
+            <span className="text-sub-1">TRANSFER STATION</span>
+          </div>
         </div>
+        {/* <div className="flex gap-4 py-4">
+          <Link to="/">홈</Link>
+          <Link to="/">상품</Link>
+        </div> */}
       </header>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main>
         <Outlet />
       </main>
 
-      <footer className="bg-white border-t">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <p className="text-center text-gray-500">
-            © 2024 Shop. All rights reserved.
-          </p>
-        </div>
-      </footer>
+      {/* <Footer /> */}
     </div>
   );
 }

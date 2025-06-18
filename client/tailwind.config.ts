@@ -7,12 +7,22 @@ export default {
       container: {
         center: true,
         padding: {
-          DEFAULT: "1rem",
-          sm: "1.5rem",
-          md: "2rem",
-          lg: "4rem",
-          xl: "8rem",
-          "2xl": "15.7813rem",
+          DEFAULT: "4px",
+          xs: "4px",
+          sm: "6px",
+          md: "8px",
+          lg: "16px",
+          xl: "32px",
+          "2xl": "100px",
+        },
+        screens: {
+          xs: "320px",
+          sm: "480px", // 1920px의 25%
+          md: "768px", // 1920px의 40%
+          // "md-2": "1000px",
+          lg: "1024px", // 1920px의 53.3%
+          xl: "1440px", // 1920px의 75%
+          "2xl": "1920px", // 1920px의 100%
         },
       },
       fontFamily: {
