@@ -1,8 +1,16 @@
 import type { MetaFunction } from "@remix-run/node";
+import { Link } from "@remix-run/react";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
-import { Building2, ChartLine, Globe, MailIcon } from "lucide-react";
-// import { useState } from "react";
+import {
+  ArrowRight,
+  Building2,
+  ChartLine,
+  Globe,
+  MailIcon,
+} from "lucide-react";
+import data from "../data/data.json";
+import { useState } from "react";
 
 export const meta: MetaFunction = () => {
   return [
@@ -12,6 +20,8 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Index() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const cards = data;
   // const [email, setEmail] = useState("");
 
   // const handleSend = () => {
@@ -23,26 +33,74 @@ export default function Index() {
   //   window.open(mailto, "_blank");
   // };
 
+  const handleCardClick = (index: number) => {
+    setActiveIndex(index);
+  };
+
+  const handleKeyDown = (event: React.KeyboardEvent, index: number) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      handleCardClick(index);
+    }
+  };
+
   return (
     <div className="flex flex-col min-h-screen bg-gray-300">
       <Header />
-      <section className="w-full flex flex-col items-center justify-center text-center min-h-[37.8438rem] bg-white">
-        <div className="text-4xl font-bold">
+      <section
+        className="w-full flex flex-col items-center justify-center text-center min-h-[37.8438rem] bg-white bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage:
+            'url("https://api-seapt-cdn-344342163.imgix.net/images/tr/blank.png")',
+        }}
+      >
+        <div className="text-2xl lg:text-4xl font-bold">
           <h1 className="text-background-primary">TRANSFER STATION</h1>
-          <p>TR STATION은 최신 트렌드와 고품질 제품을 제공합니다.</p>
+          <p className="p-4">
+            TR STATION은 최신 트렌드와 고품질 제품을 제공합니다.
+          </p>
+          <div className="flex items-center text-sm justify-center p-8 gap-4">
+            <span>TR STATION에서 판매하는 제품</span>
+            <Link
+              to="/shop"
+              className="flex items-center justify-center gap-2 hover:scale-105 transition"
+            >
+              <span>더 알아보기</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
       <section className="w-full flex flex-col items-center justify-center min-h-[27.9688rem] bg-[#F9FAFB]">
-        <div className="w-full flex flex-col items-center justify-center text-4xl font-bold gap-4">
-          <div className="text-background-primary p-4">About Us</div>
-          <div className="p-4 lg:p-0 lg:container text-[1rem] lg:text-[1.25rem] text-center lg:w-3/5">
-            TR-Station은 미래를 여는 마케팅 플랫폼입니다. 단순한 공간을 넘어,
-            기존의 틀을 깨고 혁신을 이끄는 기회의 장입니다. 빠르게 변화하는 시장
-            속에서 TR-Station은 지속 가능한 성장을 지향하며, 창의적인 아이디어와
-            미래지향적 투자를 통해 마케팅의 새로운 패러다임을 제시합니다. 우리는
-            사람, 자본, 아이디어를 연결해 새로운 가치를 창출하고, 고객과
-            브랜드가 함께 성장할 수 있는 환경을 만듭니다. TR-Station은 변화의
-            출발점이자, 다음 세대를 위한 마케팅 솔루션의 허브입니다.
+        <div className="w-full flex flex-col items-center justify-center text-2xl lg:text-4xl font-bold gap-4 p-8">
+          <div className="flex flex-wrap justify-center items-center gap-4">
+            {cards.map((item, index) => (
+              <button
+                key={index}
+                onClick={() => handleCardClick(index)}
+                onKeyDown={(e) => handleKeyDown(e, index)}
+                className={`cursor-pointer flex flex-col gap-4 border ${
+                  activeIndex === index
+                    ? "bg-background-tertiary text-white"
+                    : "bg-background-secondary text-white"
+                } border-gray-200 p-1 w-[10rem] h-auto items-center justify-center rounded-lg text-center text-lg hover:scale-105 transition`}
+              >
+                <div>{item.title}</div>
+              </button>
+            ))}
+          </div>
+
+          <div>
+            <div className="flex justify-center items-center text-background-primary p-4">
+              {data[activeIndex].subtitle}
+            </div>
+            <div className=" flex flex-col justify-center items-center p-4 lg:p-0 lg:container text-[1rem] text-center lg:w-3/5  h-auto overflow-y-auto">
+              {data[activeIndex].description.split("\n").map((line, index) => (
+                <div key={index} className="mb-2">
+                  {line}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

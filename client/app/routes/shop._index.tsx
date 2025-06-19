@@ -12,7 +12,7 @@ export default function Shop() {
     <div className="flex flex-col min-h-screen">
       <section className="w-full flex min-h-[25rem] bg-background-primary">
         <div className="container flex flex-col md:flex-row">
-          <div className="md:w-1/2 w-full h-full flex flex-col bg-background-primary justify-center p-0 md:p-4 gap-4">
+          <div className="md:w-1/2 w-full h-full flex flex-col justify-center p-0 md:p-4 gap-4 bg-background-primary">
             <h1 className="text-white text-4xl font-bold">
               여름 시즌 특별 할인
             </h1>
@@ -20,7 +20,13 @@ export default function Shop() {
               최대 50% 할인되 가격으로 여름 필수 아이템을 만나보세요.
             </p>
           </div>
-          <div className="md:w-1/2 w-full h-full bg-gray-300">image</div>
+          <div className="md:w-1/2 w-full h-full flex items-center justify-center bg-white">
+            <img
+              src="https://api-seapt-cdn-344342163.imgix.net/images/tr/blank.png"
+              alt="여름 시즌 특별 할인 이미지"
+              className="w-full h-full object-cover"
+            />
+          </div>
         </div>
       </section>
       <section className="container w-full flex flex-col items-center justify-center min-h-[10rem] bg-white">
