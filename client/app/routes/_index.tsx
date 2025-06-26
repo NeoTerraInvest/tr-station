@@ -59,13 +59,15 @@ export default function Index() {
           <p className="p-4">
             TR STATION은 최신 트렌드와 고품질 제품을 제공합니다.
           </p>
-          <div className="flex items-center text-sm justify-center p-8 gap-4">
+          <div className="flex flex-col items-center text-sm justify-center p-8 gap-8">
             <span>TR STATION에서 판매하는 제품</span>
             <Link
               to="/shop"
-              className="flex items-center justify-center gap-2 hover:scale-105 transition"
+              className="flex items-center justify-center gap-1 hover:scale-105 hover:bg-background-quaternary transition bg-background-primary text-white p-4 rounded-lg"
             >
-              <span>더 알아보기</span>
+              <button className="flex items-center justify-center">
+                더 알아보기
+              </button>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
