@@ -2,13 +2,7 @@ import type { MetaFunction } from "@remix-run/node";
 import { Link } from "@remix-run/react";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
-import {
-  ArrowRight,
-  Building2,
-  ChartLine,
-  Globe,
-  MailIcon,
-} from "lucide-react";
+import { Building2, ChartLine, Globe, MailIcon } from "lucide-react";
 import data from "../data/data.json";
 import { useState } from "react";
 
@@ -63,12 +57,16 @@ export default function Index() {
             <span>TR STATION에서 판매하는 제품</span>
             <Link
               to="/shop"
-              className="flex items-center justify-center gap-1 hover:scale-105 hover:bg-background-quaternary transition bg-background-primary text-white p-4 rounded-lg"
+              className="flex items-center justify-center gap-1 hover:scale-105 hover:from-red-600 hover:to-blue-700 transition bg-gradient-to-r from-red-500 to-blue-600 text-white pr-4 pl-4 pt-1 pb-1 rounded-lg shadow-lg"
             >
+              <img
+                src="https://api-seapt-cdn-344342163.imgix.net/images/tr/tr-logo.png"
+                alt="TR STATION"
+                className="w-10 h-10"
+              />
               <button className="flex items-center justify-center">
-                더 알아보기
+                상품 보러가기
               </button>
-              <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
